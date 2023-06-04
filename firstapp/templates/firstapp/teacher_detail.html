@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h1>Название курса: {{ teacher.first_name }}{{ teacher.last_name }}</h1>
+    <p><strong>Преподаватель:</strong> <a href="{{teacher.get_absolute_url}}"> {{ teacher.first_name }} {{ teacher.last_name }}</a></p>
+    <p><strong>Описание курса:</strong> </p>
+        <p><strong>Факультет:</strong> {% for faculty in teacher.faculty.all %} {{ faculty
+}}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <div style="margin-left:20px;margin-top:20px">
+    </div>
+{% endblock %}
